@@ -1,0 +1,39 @@
+{
+  "name": "crzxtask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon \"src/app.ts\" --exec \"ts-node\"",
+    "build": "tsc -p .",
+    "start": "node build/app.js",
+    "prestart": "rimraf dist && npm run build"
+  },
+  "author": "tikim723",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mongoose": "^5.7.28",
+    "@types/node": "^14.0.14",
+    "eslint": "^7.3.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chalk": "^4.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.20",
+    "reflect-metadata": "^0.1.13",
+    "typedi": "^0.8.0",
+    "typescript": "^3.9.5",
+    "winston": "^3.3.3"
+  }
+}
