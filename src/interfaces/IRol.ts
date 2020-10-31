@@ -6,4 +6,5 @@ export interface IRol {
 
 export interface IRolInput {
   name: string;
+  state?: boolean;
 }

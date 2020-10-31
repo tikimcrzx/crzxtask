@@ -15,7 +15,7 @@ class JWT {
     try {
       return jwt.verify(token, this.secretKey) as string;
     } catch (error) {
-      return error;
+      return config.MESSAGES.TOKEN_VERIFICARION_FAILED;
     }
   }
 }

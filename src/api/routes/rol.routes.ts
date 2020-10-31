@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { authMiddleware } from '../../middlewares';
 import {
   CreateRol,
   GetAllRoles,
@@ -9,11 +10,8 @@ import {
 
 export const RolRoute = () => {
   const router = Router();
-  router.route('/rol').post(CreateRol).get(GetAllRoles);
-  router
-    .route('/rol/:_id')
-    .patch(UpdateRole)
-    .get(GetByIdRol)
-    .delete(DeleteByIdRol);
+  router.use(authMiddleware);
+  router.route('/').post(CreateRol).get(GetAllRoles);
+  router.route('/:_id').patch(UpdateRole).get(GetByIdRol).delete(DeleteByIdRol);
   return router;
 };

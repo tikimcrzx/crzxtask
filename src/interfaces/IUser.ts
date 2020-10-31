@@ -1,3 +1,5 @@
+import { IRol } from './IRol';
+
 export interface IUser {
   _id: string;
   name: string;
@@ -5,6 +7,7 @@ export interface IUser {
   phone: string;
   email: string;
   password: string;
+  roles: IRol[];
   avatar?: string;
   banner?: string;
   state?: boolean;
@@ -16,6 +19,8 @@ export interface IUserInput {
   phone: string;
   email: string;
   password: string;
+  roles: IRol[];
   avatar?: string;
   banner?: string;
+  state?: boolean;
 }

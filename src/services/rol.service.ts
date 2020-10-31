@@ -1,7 +1,6 @@
 import { IRol } from './../interfaces/IRol';
 import { Service, Inject } from 'typedi';
 import { GenericResponse } from '../class/Generic';
-import config from '../config';
 import { IRolInput } from '../interfaces/IRol';
 import { rolModel } from '../types';
 import {
@@ -11,8 +10,6 @@ import {
   updateElement,
   deleteElement,
 } from '../lib/db-operations';
-
-const codeRequest = config.CodeRequest;
 
 @Service()
 export default class RolService {
@@ -39,6 +36,7 @@ export default class RolService {
     return await getAllElements(
       this.rolModel,
       this.logger,
+      'Not Found any Roles',
       'Get All Roles',
       pageSize,
       pageNum,

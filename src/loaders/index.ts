@@ -8,13 +8,33 @@ export default async ({ expressApp }) => {
   await mongooseLoader();
   Logger.info(chalk.magenta('DB Loaded and Connected!'));
 
+  const commentModel = {
+    name: 'commentModel',
+    model: require('../models/comments.model').default,
+  };
+
+  const postModel = {
+    name: 'postModel',
+    model: require('../models/post.model').default,
+  };
+
   const rolModel = {
     name: 'rolModel',
     model: require('../models/rol.model').default,
   };
 
+  const tagModel = {
+    name: 'tagModel',
+    model: require('../models/tag.model').default,
+  };
+
+  const userModel = {
+    name: 'userModel',
+    model: require('../models/user.model').default,
+  };
+
   await dependecyLoader({
-    models: [rolModel],
+    models: [commentModel, postModel, rolModel, tagModel, userModel],
   });
   Logger.info(chalk.magenta('Dependecy Injector loaded'));
 

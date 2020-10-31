@@ -1,9 +1,11 @@
 import express from 'express';
 import cors from 'cors';
-import { RolRoute } from '../api/routes/rol.routes';
+import { AuthRoute, RolRoute } from '../api';
 import config from '../config';
 
 export default ({ app }: { app: express.Application }) => {
+  const apiRoutes = express.Router();
+
   app.get('/status', (req, res) => {
     res.status(200).end();
   });
@@ -12,11 +14,17 @@ export default ({ app }: { app: express.Application }) => {
   });
   app.enable('trust proxy');
   app.use(cors());
+
   app.use(require('method-override')());
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
 
-  app.use(config.api.prefix, RolRoute());
+  apiRoutes.use('/auth', AuthRoute());
+  apiRoutes.use('/rol', RolRoute());
+
+  // app.use(config.api.prefix, RolRoute());
+  // app.use(config.api.prefix, AuthRoute());
+  app.use(config.api.prefix, apiRoutes);
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {

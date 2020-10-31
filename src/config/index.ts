@@ -10,6 +10,9 @@ export default {
   port: parseInt(process.env.PORT, 10),
   databaseURL: process.env.MONGODB_URI,
   jwtSecrect: process.env.JWT_SECRECT,
+  MESSAGES: {
+    TOKEN_VERIFICARION_FAILED: 'Token Invalid',
+  },
   CodeRequest: {
     OK: 0,
     VAL: 1,
