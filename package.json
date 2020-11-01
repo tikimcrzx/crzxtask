@@ -8,6 +8,7 @@
     "build": "tsc -p .",
     "start": "node build/app.js",
     "start:prod": "node build/app.js",
+    "postinstall": "npm run prestart:prod",
     "prestart:prod": "rimraf dist && npm run build"
   },
   "author": "tikim723",
