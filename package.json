@@ -7,9 +7,7 @@
     "dev": "nodemon \"src/app.ts\" --exec \"ts-node\"",
     "build": "tsc -p .",
     "start": "node build/app.js",
-    "start:prod": "node build/app.js",
-    "postinstall": "npm run prestart:prod",
-    "prestart:prod": "rimraf dist && npm run build"
+    "start:prod": "node build/app.js"
   },
   "author": "tikim723",
   "license": "ISC",
