@@ -2,11 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import config from '../config';
 
-export const authMiddleware = (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+export const authMiddleware = (req: any, res: Response, next: NextFunction) => {
   let token;
 
   if (
@@ -24,7 +20,7 @@ export const authMiddleware = (
     if (err) {
       throw new Error('Invalid Token');
     }
-    res.setHeader('token', token);
+    req.user = decode.user;
   });
 
   next();
